@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>NodeBuzz</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link href="css/jquery.mobile.min.css" rel="stylesheet" media="screen">
+    <link href="css/client.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+
+    <div data-role="page">
+        
+        <div data-role="content">
+            <p>NodeBuzz Client</p>
+            <div id="light">
+              <div id="timer">
+                <p id="time"></p>
+              </div>
+              <div id="innerlight">
+                <p id="lightmsg">JavaScript?</p>
+              </div>
+            </div>
+            
+            <p>Shake to Buzz</p>
+            <div id="shaketobuzz"></div>
+            
+            <div id="enterteamname">
+              <input type=text id="teamname" value="unnamed team">
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/jquery.mobile.min.js"></script>
+    <script src="javascript/engine.io.js"></script>
+    <script src="javascript/client.js"></script>
+  </body>
+</html>

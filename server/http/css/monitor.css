@@ -1,0 +1,50 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.ui-content {
+  padding: 0px;
+}
+
+#container {
+  width: 100%;
+  height: 1080px;
+  position: relative;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#buzzed {
+  visibility: hidden;
+}
+
+#nobuzz {
+  padding-top: 300px;
+}
+
+#status {
+  text-align: center;
+  font-size: 100px;
+  color: #555555;
+}
+
+#teamname {
+  text-align: center;
+  font-size: 200px;
+  color: #FFFFFF;
+}
+
+#timer {
+  text-align: center;
+  font-size: 200px;
+  color: #FFFFFF;
+}
