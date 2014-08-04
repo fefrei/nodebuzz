@@ -14,7 +14,7 @@ var nextID = 0;
 
 app.use("/", express.static("http"));
 
-var http = app.listen(port)
+var http = app.listen(port);
 var io = require('engine.io').attach(http, { pingInterval: 2000, pingTimeout: 5000 });
 
 io.on('connection', function (socket) {
@@ -31,9 +31,9 @@ io.on('connection', function (socket) {
 console.log("Listening on port %d", port);
 
 
-var clients = new Array();
-var monitors = new Array();
-var admins = new Array();
+var clients = [];
+var monitors = [];
+var admins = [];
 var currentBuzzHolder = null;
 var currentBuzzHoldSteps = 0;
 
@@ -43,7 +43,7 @@ function processMsg(socket, msg) {
   
   switch (obj.method) {
     case 'register':
-      if (clients.length == 0) {nextID = 0;}
+      if (clients.length === 0) {nextID = 0;}
       var client = { socket: socket, id: nextID++, teamName: obj.teamName, buzzAllowed: true };
       clients.push(client);
       console.log("The team %s registered for id %d.", client.teamName, client.id);
@@ -102,7 +102,7 @@ function processMsg(socket, msg) {
     default:
       console.log("Illegal message: %s", msg);
   }
-};
+}
 
 
 function processClose(socket) {
@@ -130,7 +130,7 @@ function processClose(socket) {
       admins.splice(i--, 1);
     }
   }
-};
+}
 
 
 function sendConfiguration() {
@@ -139,13 +139,13 @@ function sendConfiguration() {
   }
   
   for (i = 0; i < monitors.length; ++i) {
-    monitors[i].socket.send(JSON.stringify({ method: 'setBuzzEnabled', buzzEnabled: buzzEnabled }))
+    monitors[i].socket.send(JSON.stringify({ method: 'setBuzzEnabled', buzzEnabled: buzzEnabled }));
   }
 }
 
 
 function sendClients() {
-  var clist = new Array();
+  var clist = [];
   for (i = 0; i < clients.length; ++i) {
     clist.push({ id: clients[i].id, buzzAllowed: clients[i].buzzAllowed, teamName: clients[i].teamName });
   }
@@ -158,7 +158,7 @@ function sendClients() {
 
 function sendBuzzAllowed() {
   for (i = 0; i < clients.length; ++i) {
-    clients[i].socket.send(JSON.stringify({ method: 'setBuzzAllowed', value: (buzzEnabled && clients[i].buzzAllowed) }))
+    clients[i].socket.send(JSON.stringify({ method: 'setBuzzAllowed', value: (buzzEnabled && clients[i].buzzAllowed) }));
   }
 }
 
@@ -187,7 +187,7 @@ function processSetTeamName(id, teamName) {
 
 
 function processBuzz(socket) {
-  if (currentBuzzHolder == null && buzzEnabled) {
+  if (currentBuzzHolder === null && buzzEnabled) {
     for (i = 0; i < clients.length; ++i) {
       if (clients[i].socket == socket) {
         buzz(clients[i]);
@@ -195,11 +195,11 @@ function processBuzz(socket) {
       }
     }
   }
-};
+}
 
 
 function processForcedBuzz(teamID) {
-  if (currentBuzzHolder == null) {
+  if (currentBuzzHolder === null) {
     for (i = 0; i < clients.length; ++i) {
       if (clients[i].id == teamID) {
         console.log("Processing a forced buzz.");
@@ -213,8 +213,8 @@ function processForcedBuzz(teamID) {
 
 
 function processRandomBuzz() {
-  if (currentBuzzHolder == null) {
-    var possibleClients = new Array();
+  if (currentBuzzHolder === null) {
+    var possibleClients = [];
     
     for (i = 0; i < clients.length; ++i) {
       if (clients[i].buzzAllowed) {
@@ -248,7 +248,7 @@ function buzz(client) {
 
 
 function processBuzzTick() {
-  if (currentBuzzHoldSteps == 0) {
+  if (currentBuzzHoldSteps === 0) {
     currentBuzzHolder = null;
     console.log("Buzz released.");
     sendBuzzNotifications();
@@ -267,23 +267,23 @@ function processBuzzTick() {
 
 
 function sendBuzzNotifications() {
-  if (currentBuzzHolder == null) {
+  if (currentBuzzHolder === null) {
     for (i = 0; i < clients.length; ++i) {
-      clients[i].socket.send(JSON.stringify({ method: 'setState', state: 'free' }))
+      clients[i].socket.send(JSON.stringify({ method: 'setState', state: 'free' }));
     }
     for (i = 0; i < monitors.length; ++i) {
-      monitors[i].socket.send(JSON.stringify({ method: 'setState', state: 'free' }))
+      monitors[i].socket.send(JSON.stringify({ method: 'setState', state: 'free' }));
     }
   } else {
     for (i = 0; i < clients.length; ++i) {
       if (clients[i] == currentBuzzHolder) {
-        clients[i].socket.send(JSON.stringify({ method: 'setState', state: 'yougotit' }))
+        clients[i].socket.send(JSON.stringify({ method: 'setState', state: 'yougotit' }));
       } else {
-        clients[i].socket.send(JSON.stringify({ method: 'setState', state: 'nobuzzforyou' }))
+        clients[i].socket.send(JSON.stringify({ method: 'setState', state: 'nobuzzforyou' }));
       }
     }
     for (i = 0; i < monitors.length; ++i) {
-      monitors[i].socket.send(JSON.stringify({ method: 'setState', state: 'buzzed', teamName: currentBuzzHolder.teamName }))
+      monitors[i].socket.send(JSON.stringify({ method: 'setState', state: 'buzzed', teamName: currentBuzzHolder.teamName }));
     }
   }
 }
