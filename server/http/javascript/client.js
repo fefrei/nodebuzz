@@ -77,8 +77,10 @@ function connect() {
     
     $('#lightmsg').text('Connecting...');
     
-    var psocket = new eio();
+    var psocket = new eio.Socket();
     psocket.on('open', function () {
+        if (socket) psocket.close();
+        
         $('#innerlight').css('visibility', 'hidden');
         socket = psocket;
         socket.send(JSON.stringify({ method: 'register', teamName: $('#teamname').val() }));

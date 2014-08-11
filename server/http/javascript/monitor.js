@@ -20,6 +20,8 @@ function connect() {
     console.log("connect");
     var psocket = new eio.Socket();
     psocket.on('open', function () {
+        if (socket) psocket.close();
+        
         setStatusMsg();
         socket = psocket;
         socket.send(JSON.stringify({ method: 'monitor' }));

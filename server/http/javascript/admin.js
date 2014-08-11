@@ -10,6 +10,8 @@ function connect() {
     
     var psocket = new eio();
     psocket.on('open', function () {
+        if (socket) psocket.close();
+        
         socket = psocket;
         socket.send(JSON.stringify({ method: 'administrate' }));
         
