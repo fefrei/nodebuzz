@@ -143,7 +143,8 @@ function processMsg(msg) {
 
 function initializeAudio() {
     if('webkitAudioContext' in window) {
-        audioContext = new webkitAudioContext();
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioContext = new AudioContext();
         
         bRequest = new XMLHttpRequest();
         bRequest.open('GET', 'sounds/buzzer.wav', true);
