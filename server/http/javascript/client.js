@@ -213,7 +213,7 @@ $(document).on('pageinit',function(event) {
         }
     });
     
-    $("#teamname").keyup(function() {
+    $("#teamname").change(function() {
         if (socket) {
             socket.send(JSON.stringify({ method: 'changeTeamName', teamName: $('#teamname').val() }));
         }
