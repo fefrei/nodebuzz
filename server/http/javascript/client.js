@@ -5,7 +5,8 @@ var colorBuzzNotAllowed = '#555555';
 var colorReady = '#EEEEEE';
 var colorError = '#000000';
 
-var sensitivity = 3.0;
+var sensitivity = 1.0;
+var threshold = 3.0;
 
 var lastPos = {x: 0, y: 0, z: 0};
 var diff = 0;
@@ -41,9 +42,9 @@ if (window.DeviceMotionEvent) {
         diff += diffData(lastPos, newPos);
         
         if (event.rotationRate) {
-            diff += Math.abs(event.rotationRate.alpha);
-            diff += Math.abs(event.rotationRate.beta);
-            diff += Math.abs(event.rotationRate.gamma);
+            diff += Math.abs(event.rotationRate.alpha) * sensitivity;
+            diff += Math.abs(event.rotationRate.beta) * sensitivity;
+            diff += Math.abs(event.rotationRate.gamma) * sensitivity;
         }
         
         lastPos = newPos;
@@ -220,9 +221,16 @@ $(document).on('pageinit',function(event) {
         }
     });
     
+    $("#highsensitivity").change(function() {
+        if($(this).is(":checked")) {
+            sensitivity = 250.0;
+        } else {
+            sensitivity = 1.0;
+        }});
+    
     window.setInterval(function(){
         $('#shaketobuzz').css('background-color', makeColor(255 - (diff - 1) * 10));
-        if (diff > sensitivity && socket) { buzz(); }
+        if (diff > threshold && socket) { buzz(); }
         diff = 0;
         
         if (socket) {

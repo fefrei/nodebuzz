@@ -169,7 +169,7 @@ function sendBuzzAllowed() {
 function processChangeTeamName(socket, teamName) {
     for (i = 0; i < clients.length; ++i) {
         if (clients[i].socket == socket) {
-            console.log("Team %d, formely %s, is now known as %s.", clients[i].id, clients[i].teamName, teamName);
+            console.log("Team %d, formerly %s, is now known as %s.", clients[i].id, clients[i].teamName, teamName);
             clients[i].teamName = teamName;
             sendClients();
         }
@@ -180,7 +180,7 @@ function processChangeTeamName(socket, teamName) {
 function processAdminSetTeamName(id, teamName) {
     for (i = 0; i < clients.length; ++i) {
         if (clients[i].id == id) {
-            console.log("Team %d, formely %s, was renamed by an admin to %s.", clients[i].id, clients[i].teamName, teamName);
+            console.log("Team %d, formerly %s, was renamed by an admin to %s.", clients[i].id, clients[i].teamName, teamName);
             clients[i].teamName = teamName;
             clients[i].socket.send(JSON.stringify({ method: 'setTeamName', value: teamName }));
             sendClients();
