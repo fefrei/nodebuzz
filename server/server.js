@@ -194,6 +194,10 @@ function processBuzz(socket) {
         for (i = 0; i < clients.length; ++i) {
             if (clients[i].socket == socket) {
                 buzz(clients[i]);
+                for (i = 0; i < monitors.length; ++i) {
+                    monitors[i].socket.send(JSON.stringify({ method: 'teamBuzzed', teamName: currentBuzzHolder.teamName }));
+                }
+                
                 break;
             }
         }

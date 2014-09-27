@@ -66,6 +66,9 @@ function processMsg(msg) {
             break;
         case 'setBuzzEnabled':
             break; // not for us
+        case 'teamBuzzed':
+            $('#buzz-log-list').prepend('<li><p>Buzz from team <code>' + obj.teamName + '</code></p></li>');
+            break;
         default:
             console.log("Illegal message: %s", msg);
     }
@@ -227,4 +230,8 @@ $("#randombuzz").click(function (event) {
 
 $("#releasebuzz").click(function (event) {
     releaseBuzz();
+});
+
+$("#clearlog").click(function (event) {
+    $('#buzz-log-list').html('');
 });

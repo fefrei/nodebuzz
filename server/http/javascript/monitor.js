@@ -67,6 +67,8 @@ function processMsg(msg) {
             buzzEnabled = obj.buzzEnabled;
             setStatusMsg();
             break;
+        case 'teamBuzzed':
+            break; // just for admins
         default:
             console.log("Illegal message: %s", msg);
     }
