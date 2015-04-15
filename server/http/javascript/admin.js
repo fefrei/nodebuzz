@@ -5,6 +5,16 @@ var audioContext, buzzer;
 $('#statusmsg').text('Click to connect.');
 
 
+function htmlEscape(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+
 function connect() {
     $('#statusmsg').text('Connecting...');
     
@@ -67,7 +77,8 @@ function processMsg(msg) {
         case 'setBuzzEnabled':
             break; // not for us
         case 'teamBuzzed':
-            $('#buzz-log-list').prepend('<li><p>Buzz from team <code>' + obj.teamName + '</code></p></li>');
+            var currentdate = new Date(); 
+            $('#buzz-log-list').prepend('<li><p>' + htmlEscape("[" + currentdate.toLocaleTimeString() + '] ') + htmlEscape(obj.teamName) + '</code></p></li>');
             break;
         default:
             console.log("Illegal message: %s", msg);
@@ -82,7 +93,7 @@ function addClientListRow(client) {
     cols += '<td>' + client.id + '</td>';
     cols += '<td><input type="button" class="clientBuzz" value="Buzz!"></td>';
     cols += '<td><input type="checkbox" class="clientBuzzEnabled" checked="' + client.buzzAllowed + '"></td>';
-    cols += '<td><input type="text" class="clientTeamName" value="' + client.teamName + '"></td>';
+    cols += '<td><input type="text" class="clientTeamName" value="' + htmlEscape(client.teamName) + '"></td>';
     
     newRow.append(cols);
     $("#clientList").append(newRow);

@@ -87,7 +87,7 @@ function processMsg(socket, msg) {
             processAdminSetTeamName(obj.teamID, obj.teamName);
             break;
         case 'changeTeamName':
-            processChangeTeamName(socket, obj.teamName);
+            processChangeTeamName(socket, obj.teamName); // comment this to work around the mystery bug
             break;
         case 'setBuzzDuration':
             buzzHoldSteps = Math.max(Math.min(obj.buzzDuration, 300), 1);

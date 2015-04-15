@@ -135,6 +135,7 @@ function processMsg(msg) {
             break;
         case 'setTeamName':
             $('#teamname').val(obj.value);
+            localStorage.setItem('teamName', obj.value);
             break;
         default:
             console.log("Illegal message: %s", msg);
@@ -216,14 +217,17 @@ $(document).on('pageinit',function(event) {
     });
     
     $("#teamname").change(function() {
+        var newTeamName = $('#teamname').val();
+        localStorage.setItem('teamName', newTeamName);
+        
         if (socket) {
-            socket.send(JSON.stringify({ method: 'changeTeamName', teamName: $('#teamname').val() }));
+            socket.send(JSON.stringify({ method: 'changeTeamName', teamName: newTeamName }));
         }
     });
     
     $("#highsensitivity").change(function() {
         if($(this).is(":checked")) {
-            sensitivity = 250.0;
+            sensitivity = 100.0;
         } else {
             sensitivity = 1.0;
         }});
@@ -258,4 +262,6 @@ $(document).on('pageinit',function(event) {
     }, 50);
     
     $('#lightmsg').text('Tap to connect.');
+    
+    $('#teamname').val(localStorage.getItem('teamName') || "unnamed team");
 });
