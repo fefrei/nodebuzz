@@ -1,0 +1,49 @@
+<div class="row">
+    <div class=" col-xs-12 col-sm-offset-1 col-sm-10 col-md-8 col-md-offset-2 ">
+        <div class="col-sm-12">
+            <h1 class="text-center">Server log</h1>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-sm-6">
+
+            <div class="btn-group">
+                <button title="Clear the log" type="button" class="btn btn-info" ng-click="logViewCtrl.clearLog()"><span
+                        class="glyphicon glyphicon-trash"></span></button>
+                <button type="button" title="Pause/continue the log" class="btn btn-info" ng-click="logViewCtrl.toggleActiveLog()"><span
+                        class="glyphicon glyphicon-play" ng-class="{'glyphicon-pause': logViewCtrl.logActive}"></span></button>
+            </div>
+
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                <input class="form-control" type="text" ng-model="logViewCtrl.searchTerm"
+                       placeholder="Search the log ...">
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xs-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-scissors"></span></div>
+                <input title="Show only the {{logViewCtrl.logLimit}} latest entries" type="number" class="form-control text-center" ng-model="logViewCtrl.logLimit"
+                       ng-pattern="/^[0-9]+$/" min = "0">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-12" style="margin-top: 20px">
+            <ul class="list-group">
+                <li class="list-group-item nga-fast nga-stagger nga-slide-left"
+                    ng-repeat="entry in logViewCtrl.log | limitTo:logViewCtrl.logLimit | filter:logViewCtrl.searchTerm">
+                    <span class="glyphicon glyphicon-time"></span>  [{{entry.time | date:logViewCtrl.timestampFormat}}] <span class="glyphicon glyphicon-chevron-right"></span> {{entry.message}}
+                </li>
+                <li ng-hide="logViewCtrl.log.length" class="list-group-item list-group-item-info"><span
+                        class="glyphicon glyphicon-chevron-right"></span> No occurences at the moment!
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

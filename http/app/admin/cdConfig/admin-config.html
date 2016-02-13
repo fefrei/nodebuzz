@@ -1,0 +1,33 @@
+<form name="configForm" role="form"
+      ng-submit="adminConfigCtrl.submitConfigForm(configForm)"
+      novalidate>
+    <div class="input-group">
+        <div class="input-group-btn" title="Submit change">
+            <button type="submit"
+                    ng-disabled="adminConfigCtrl.configFormInValid(configForm)"
+                    class="btn btn-primary">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+        </div>
+        <input id="counter" name="counter" class="text-center  form-control"
+               ng-model="adminConfigCtrl.counterValue" title="change the countdown"
+               type="number" min="0"
+               required>
+
+        <div class="input-group-btn" title="Reset value">
+            <button type="button" class="btn btn-default"
+                    ng-click="adminConfigCtrl.resetLocalCountDown(configForm)"
+                    ng-disabled="configForm.$pristine || !adminConfigCtrl.checkNewCounter()">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="" uib-collapse="!configForm.$invalid">
+            <span class="label label-danger center-block" >
+                <span class="glyphicon glyphicon-flash"></span>
+                Invalid number!
+            </span>
+    </div>
+</form>

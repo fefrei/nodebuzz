@@ -1,0 +1,10 @@
+<button type="button" class="btn btn-primary btn-block"
+        ng-click="randomBuzzCtrl.buzzRandomTeam()"
+        ng-disabled="randomBuzzCtrl.disabled">
+    <h4>Buzz a random Team!</h4>
+</button>
+<div uib-collapse="!randomBuzzCtrl.cannotBuzzRandom" >
+    <span class="label label-danger center-block" >
+    There is noone there that could buzz!
+</span>
+</div>

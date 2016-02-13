@@ -1,0 +1,48 @@
+{"level":"info","message":"Admin token: h1iwWYQ0Z6tjXje","timestamp":"2016-01-05T12:09:12.849Z"}
+{"level":"info","message":"Listening on port 8080","timestamp":"2016-01-05T12:09:13.200Z"}
+{"level":"info","message":"This program can be controlled via command line:\nEnter \"help\" to get further details","timestamp":"2016-01-05T12:09:13.274Z"}
+{"level":"info","message":"client named DEVICE 2654622215 disconnected","timestamp":"2016-01-05T12:12:38.853Z"}
+{"level":"info","message":"client named DEVICE 9788566615 disconnected","timestamp":"2016-01-05T12:13:19.387Z"}
+{"level":"info","message":"client named DEVICE 3724442308 disconnected","timestamp":"2016-01-05T12:15:08.262Z"}
+{"level":"info","message":"client named DEVICE 2356700759 disconnected","timestamp":"2016-01-05T12:15:37.270Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T12:19:31.670Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T12:20:26.523Z"}
+{"level":"info","message":"client named DEVICE 7035952697 disconnected","timestamp":"2016-01-05T12:21:35.425Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T12:21:55.784Z"}
+{"level":"info","message":"Valid commands are:\n\u001b[90m     about                          displays information about development team\n\u001b[39m     disable/enable buzzer          disables/enables buzzer\n\u001b[90m     exit                           shuts down server\n\u001b[39m     fullHelp                       displays the extended info\n     kickUser username              moves client to Lobby\u001b[90m\n\u001b[39m     loadServerState                loads the corresponding server state\n\u001b[90m     key                            prints the key needed to login as admin\n\u001b[39m     renameTeam oldName:newName     changes the name of team oldName to newName\n\u001b[90m     renameUser oldName:newName     changes the name of user oldName to newName\n\u001b[39m","timestamp":"2016-01-05T12:24:50.645Z"}
+{"level":"info","message":"Don't know that one ...\n","timestamp":"2016-01-05T12:24:50.653Z"}
+{"level":"info","message":"Admin token: OejIvAgmeU6s3Vp","timestamp":"2016-01-05T12:26:15.699Z"}
+{"level":"info","message":"Listening on port 8080","timestamp":"2016-01-05T12:26:16.046Z"}
+{"level":"info","message":"This program can be controlled via command line:\nEnter \"help\" to get further details","timestamp":"2016-01-05T12:26:16.113Z"}
+{"level":"info","message":"Admin token: jlrlzrhlCr6kZ49","timestamp":"2016-01-05T12:28:02.157Z"}
+{"level":"info","message":"Listening on port 8080","timestamp":"2016-01-05T12:28:02.467Z"}
+{"level":"info","message":"This program can be controlled via command line:\nEnter \"help\" to get further details","timestamp":"2016-01-05T12:28:02.527Z"}
+{"level":"info","message":"client named DEVICE 390134295 disconnected","timestamp":"2016-01-05T12:30:37.059Z"}
+{"level":"info","message":"client named DEVICE 8564213407 disconnected","timestamp":"2016-01-05T12:30:42.874Z"}
+{"level":"info","message":"monitor device disconnected","timestamp":"2016-01-05T12:32:19.944Z"}
+{"level":"info","message":"monitor device disconnected","timestamp":"2016-01-05T12:32:21.543Z"}
+{"level":"info","message":"monitor device disconnected","timestamp":"2016-01-05T12:32:22.960Z"}
+{"level":"info","message":"monitor device disconnected","timestamp":"2016-01-05T12:32:23.585Z"}
+{"level":"info","message":"client named DEVICE 136213861 disconnected","timestamp":"2016-01-05T12:32:54.999Z"}
+{"level":"info","message":"client named DEVICE 918305455 disconnected","timestamp":"2016-01-05T12:36:29.791Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T12:36:59.807Z"}
+{"level":"info","message":"monitor device disconnected","timestamp":"2016-01-05T12:40:38.891Z"}
+{"level":"info","message":"client named DEVICE 1264544141 disconnected","timestamp":"2016-01-05T12:44:17.523Z"}
+{"level":"info","message":"Valid commands are:\n\u001b[90m     about                          displays information about development team\n\u001b[39m     disable/enable buzzer          disables/enables buzzer\n\u001b[90m     exit                           shuts down server\n\u001b[39m     fullHelp                       displays the extended info\n     kickUser username              moves client to Lobby\u001b[90m\n\u001b[39m     loadServerState                loads the corresponding server state\n\u001b[90m     key                            prints the key needed to login as admin\n\u001b[39m     renameTeam oldName:newName     changes the name of team oldName to newName\n\u001b[90m     renameUser oldName:newName     changes the name of user oldName to newName\n\u001b[39m","timestamp":"2016-01-05T12:48:26.710Z"}
+{"level":"info","message":"Valid commands are:\n\u001b[90m     about                          displays information about development team\n\u001b[39m     addPoints teamname:points      adds the given amount of points to given team\n\u001b[90m     changeTeam user:teamname       moves user user to the team teamname\n\u001b[39m     close                          ends the commandLineInterface\n\u001b[90m     createTeam teamname            creates team with name teamname\n\u001b[39m     deleteTeam teamname            deletes corresponding team and moves members into lobby\n\u001b[90m     disable/enable buzzer          disables/enables buzzer\n\u001b[39m     exit                           shuts down server\n\u001b[90m     help                           displays the info\n\u001b[39m     fullHelp                       displays the extended info\n     kickUser username              moves client to Lobby\u001b[90m\n\u001b[39m     loadServerState fileName       loads the corresponding server state\n\u001b[90m     printAK                        prints the key needed to login as admin\n\u001b[39m     renameTeam oldName:newName     changes the name of team oldName to newName\n\u001b[90m     renameUser oldName:newName     changes the name of user oldName to newName\n\u001b[39m     saveServerState fileName       saves the current server state\n\u001b[90m     setCountdown newValue          sets the countdown start time to newValue\n\u001b[39m","timestamp":"2016-01-05T12:48:37.536Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T12:53:58.604Z"}
+{"level":"warn","message":"CLI terminated by error or via CTL+C","timestamp":"2016-01-05T13:02:50.239Z"}
+{"level":"info","message":"Admin token: reUYaS5BNjld1P4","timestamp":"2016-01-05T13:13:00.073Z"}
+{"level":"info","message":"Listening on port 8080","timestamp":"2016-01-05T13:13:00.684Z"}
+{"level":"info","message":"This program can be controlled via command line:\nEnter \"help\" to get further details","timestamp":"2016-01-05T13:13:00.784Z"}
+{"level":"info","message":"client named DEVICE 8331279442 disconnected","timestamp":"2016-01-05T13:13:42.690Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T13:14:22.406Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T13:14:59.171Z"}
+{"level":"info","message":"Admin token: 3IfT1lHB9Stwscu","timestamp":"2016-01-05T16:02:18.262Z"}
+{"level":"info","message":"Listening on port 8080","timestamp":"2016-01-05T16:02:18.864Z"}
+{"level":"info","message":"This program can be controlled via command line:\nEnter \"help\" to get further details","timestamp":"2016-01-05T16:02:18.963Z"}
+{"level":"info","message":"monitor device disconnected","timestamp":"2016-01-05T16:04:20.151Z"}
+{"level":"info","message":"client named DEVICE 1935473771 disconnected","timestamp":"2016-01-05T16:04:59.167Z"}
+{"level":"info","message":"client named Felix disconnected","timestamp":"2016-01-05T16:05:32.420Z"}
+{"level":"info","message":"client named DEVICE 7563359111 disconnected","timestamp":"2016-01-05T16:07:20.251Z"}
+{"level":"info","message":"admin device disconnected","timestamp":"2016-01-05T16:08:55.966Z"}

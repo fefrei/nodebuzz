@@ -1,0 +1,106 @@
+<div style="margin-top: 20px">
+
+    <!-- only visible when the teamList is shown -->
+    <div class="col-sm-4"
+         ng-show="!monitorSettingsCtrl.disconnected.value && (monitorSettingsCtrl.isTeamListShown.value && !monitorSettingsCtrl.buzzersEnabled.value  || !monitorSettingsCtrl.dynamicView.value) ">
+
+        <div class="btn-group" role="group">
+
+            <!-- buttons to change the style -->
+            <div class="btn-group" title="change Style">
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                        class="glyphicon glyphicon-tint"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li ng-click="monitorSettingsCtrl.setStyle('Superhero')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'superhero'}"
+                    ><a href="#">Grey-Orange</a></li>
+                    <li ng-click="monitorSettingsCtrl.setStyle('Cerulean')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'cerulean'}"><a
+                            href="#">White-Blue(round)</a></li>
+                    <li ng-click="monitorSettingsCtrl.setStyle('Yeti')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'yeti'}"><a
+                            href="#">White-Blue(angled)</a></li>
+                    <li ng-click="monitorSettingsCtrl.setStyle('Cyborg')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'cyborg'}"><a
+                            href="#">Black-Blue</a></li>
+                    <li ng-click="monitorSettingsCtrl.setStyle('Darkly')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'darkly'}"><a
+                            href="#">Black-Darkblue</a></li>
+                    <li ng-click="monitorSettingsCtrl.setStyle('Flatly')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'flatly'}"><a
+                            href="#">White-Darkblue</a></li>
+                    <li ng-click="monitorSettingsCtrl.setStyle('Slate')"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.style == 'slate'}"><a
+                            href="#">Black-Grey</a></li>
+                </ul>
+            </div>
+
+            <!-- buttons to choose the view -->
+            <div class="btn-group" title="choose View">
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                        class="glyphicon glyphicon-picture"></span></a>
+                <ul class="dropdown-menu">
+                    <li ng-click="monitorSettingsCtrl.chooseStandardViewDynamic()"
+                        role="menuitem"
+                        ng-class="{'label-success': monitorSettingsCtrl.standardView.value && monitorSettingsCtrl.dynamicView.value}">
+                        <a
+                                href="#">Standard View dynamic</a></li>
+                    <li role="menuitem"
+                        ng-click="monitorSettingsCtrl.chooseStandardViewStatic()"
+                        ng-class="{'label-success': monitorSettingsCtrl.standardView.value && !monitorSettingsCtrl.dynamicView.value}">
+                        <a
+                                href="#">Standard View static</a></li>
+                    <li role="menuitem"
+                        ng-click="monitorSettingsCtrl.chooseScoreBoardViewDynamic()"
+                        ng-class="{'label-success': monitorSettingsCtrl.scoreBoard.value && monitorSettingsCtrl.dynamicView.value}">
+                        <a
+                                href="#">Score Board dynamic</a></li>
+                    <li role="menuitem"
+                        ng-click="monitorSettingsCtrl.chooseScoreBoardViewStatic()"
+                        ng-class="{'label-success': monitorSettingsCtrl.scoreBoard.value && !monitorSettingsCtrl.dynamicView.value}">
+                        <a
+                                href="#">Score Board static</a></li>
+                </ul>
+            </div>
+
+            <!-- by pressing this button, the members of the teams are hidden if a standard view is
+            selected -->
+            <button class="btn btn-default" type="button"
+                    title="Hide the Members of the Teams"
+                    ng-show="monitorSettingsCtrl.areTeamMembersVisible.value"
+                    ng-click="monitorSettingsCtrl.hideTeamMembers()"
+                    ng-class="{'disabled-button' : monitorSettingsCtrl.scoreBoard.value}">
+                Hide Members
+            </button>
+
+            <!-- by pressing this button, the members of the teams are shown again -->
+            <button class="btn btn-default" type="button"
+                    title="Show the Members of the Teams"
+                    ng-show="!monitorSettingsCtrl.areTeamMembersVisible.value"
+                    ng-click="monitorSettingsCtrl.showTeamMembers()"
+                    ng-class="{'disabled-button' : monitorSettingsCtrl.scoreBoard.value}">
+                Show Members
+            </button>
+
+            <!-- button to set the sound of the monitor on mute or on audible -->
+            <div class="btn-group pull-right" role="group" title="Enable/Disable Volume">
+                <button class="btn btn-default" type="button"
+                        ng-click="monitorSettingsCtrl.setMute()">
+                        <span class="glyphicon glyphicon-volume-off"
+                              ng-class="{'glyphicon-volume-up' : monitorSettingsCtrl.isSoundEnabled.value}">
+                        </span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>

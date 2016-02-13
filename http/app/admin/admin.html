@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ServerApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="bower_components/bootswatch/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+
+    <link rel="stylesheet" href="css/xeditable.css">
+
+    <link rel="stylesheet" href="bower_components/angular-animate-css/build/nga.css">
+    <link rel="stylesheet" href="css/hotkeys.css">
+</head>
+<body ng-controller="loginController as loginCtrl">
+
+<div ng-hide="loginCtrl.loggedIn" class="container">
+    <admin-login></admin-login>
+</div>
+
+<div ng-show="loginCtrl.loggedIn" class="container">
+     <!--ng-swipe-left="loginCtrl.setTab('log')"
+     ng-swipe-right="loginCtrl.setTab('main')"-->
+
+    <admin-navbar></admin-navbar>
+    <admin-main-view ng-show="loginCtrl.activeTab == 'home'"></admin-main-view>
+    <admin-log-view ng-show="loginCtrl.activeTab == 'log'"></admin-log-view>
+</div>
+
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/shared/jquery.mb.audio.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<!--
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+-->
+<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript"
+        src="bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
+<script type="text/javascript"
+        src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<script type="text/javascript"
+        src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+
+<script type="text/javascript"
+        src="bower_components/angular-hotkeys/build/hotkeys.min.js"></script>
+
+<script src="app/admin_and_monitor/values.js"></script>
+<script src="app/shared/factories.js"></script>
+<script src="app/shared/helper.js"></script>
+
+
+<script src="app/admin/admin.js"></script>
+
+<script src="app/admin/randomBuzzer/randomBuzzer.directive.js"></script>
+<script src="app/admin/randomBuzzer/randomBuzzer.controller.js"></script>
+
+<script src="app/admin/countDown/countDown.directive.js"></script>
+<script src="app/admin/countDown/countDown.controller.js"></script>
+
+<script src="app/admin/loginAndTabs/loginAndTabs.directive.js"></script>
+<script src="app/admin/loginAndTabs/loginAndTabs.controller.js"></script>
+
+<script src="app/admin/cdConfig/cdConfig.directive.js"></script>
+<script src="app/admin/cdConfig/cdConfig.controller.js"></script>
+
+<script src="app/admin/buzzerControl/buzzerControl.directive.js"></script>
+<script src="app/admin/buzzerControl/buzzerControl.controller.js"></script>
+
+<script src="app/admin/teamManagement/tm.directive.js"></script>
+<script src="app/admin/teamManagement/tm.controller.js"></script>
+
+<script src="app/admin/mainView/mainView.directive.js"></script>
+
+<script src="app/admin/logView/logView.directive.js"></script>
+<script src="app/admin/logView/logView.controller.js"></script>
+
+<script src="app/admin/teamList/teamList.directive.js"></script>
+<script src="app/admin/teamList/teamList.controller.js"></script>
+
+<script src="app/admin/teamChangeAllowed/teamCA.directive.js"></script>
+<script src="app/admin/teamChangeAllowed/teamCA.controller.js"></script>
+
+<script src="app/admin/stopBuzzer/stopBuzzer.directive.js"></script>
+<script src="app/admin/stopBuzzer/stopBuzzer.controller.js"></script>
+
+<script src="app/admin/countdownReEnable/cdReEnable.directive.js"></script>
+<script src="app/admin/countdownReEnable/cdReEnable.controller.js"></script>
+
+<script src="app/admin/configSound/configSound.directive.js"></script>
+<script src="app/admin/configSound/configSound.controller.js"></script>
+
+<script src="app/admin/resetPoints/resetPoints.directive.js"></script>
+<script src="app/admin/resetPoints/resetPoints.controller.js"></script>
+<script src="app/admin/resetPoints/resetPointsModel.controller.js"></script>
+
+<script src="app/admin/team.factory.js"></script>
+<script src="app/admin/teamBuzz.factory.js"></script>
+<script src="app/admin/changeConfig.factory.js"></script>
+<script src="app/admin/connect.factory.js"></script>
+<script src="app/admin/changeNames.factory.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MonitorApp" ng-controller="monitorStyleController as monitorStyleCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet"
+          ng-href="bower_components/bootswatch/{{monitorStyleCtrl.style.value}}/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <monitor-settings-control></monitor-settings-control>
+
+    <monitor-teams-control></monitor-teams-control>
+
+    <monitor-connect-control></monitor-connect-control>
+
+    <monitor-buzzer-control></monitor-buzzer-control>
+
+</div>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/shared/jquery.mb.audio.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript"
+        src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<script src="app/monitor/monitor.js"></script>
+<script src="app/admin_and_monitor/values.js"></script>
+<script src="app/shared/factories.js"></script>
+<script src="app/shared/helper.js"></script>
+
+<script src="app/monitor/monitorBuzzerControl/monitorBuzzerControl.controller.js"></script>
+<script src="app/monitor/monitorBuzzerControl/monitorBuzzerControl.directive.js"></script>
+
+<script src="app/monitor/monitorConnectControl/monitorConnectControl.controller.js"></script>
+<script src="app/monitor/monitorConnectControl/monitorConnectControl.directive.js"></script>
+
+<script src="app/monitor/monitorTeamsControl/monitorTeamsControl.controller.js"></script>
+<script src="app/monitor/monitorTeamsControl/monitorTeamsControl.directive.js"></script>
+
+<script src="app/monitor/monitorSettingsControl/monitorSettingsControl.controller.js"></script>
+<script src="app/monitor/monitorSettingsControl/monitorSettingsControl.directive.js"></script>
+
+<script src="app/monitor/monitorStyleControl.controller.js"></script>
+
+</body>
+</html>

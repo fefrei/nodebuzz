@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button ng-click="teamPointsCtrl.goToBuzzer()" class="btn btn-default btn-md pull-right">
+            <span class="glyphicon glyphicon-ok"></span>
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 btn-group">
+        <label class="control-label col-xs-12 col-sm-12 col-md-12 col-lg-12">Sort by:</label>
+            <button ng-click="teamPointsCtrl.sortByPoins()" class="btn btn-primary btn-lg col-xs-4
+                                                                    col-sm-4 col-md-4 col-lg-4"
+                    ng-class="{'active': teamPointsCtrl.sortBy == 'teamPoints'}">
+            points
+                <span class="glyphicon glyphicon-sort-by-order-alt"
+                      ng-show="teamPointsCtrl.sortBy == 'teamPoints'">
+                </span>
+            </button>
+            <button ng-click="teamPointsCtrl.sortByName()" class="btn btn-primary btn-lg col-xs-4
+                                                                    col-sm-4 col-md-4 col-lg-4"
+                    ng-class="{'active': teamPointsCtrl.sortBy == 'teamName'}">
+                name
+                <span class="glyphicon glyphicon-sort-by-alphabet"
+                      ng-show="teamPointsCtrl.sortBy == 'teamName'">
+                </span>
+            </button>
+            <button ng-click="teamPointsCtrl.sortByMemberSize()" class="btn btn-primary btn-lg
+                                                               col-xs-4 col-sm-4 col-md-4 col-lg-4"
+                    ng-class="{'active': teamPointsCtrl.sortBy == 'teamMember'}">
+                size
+                <span class="glyphicon glyphicon-sort-by-order-alt"
+                      ng-show="teamPointsCtrl.sortBy == 'teamMember'">
+                </span>
+            </button>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="list-group">
+            <div ng-repeat="team in teamPointsCtrl.teamsData">
+                <div class="list-group-item list-group-item-info"
+                     ng-if="('Lobby' !== team.teamName) && (team.teamName == teamPointsCtrl.teamName)">
+                    {{team.teamName}}
+                    <span class="pull-right">{{team.points}}  <span class="glyphicon glyphicon-education"></span></span>
+
+                </div>
+                <div class="list-group-item"
+                     ng-if="('Lobby' !== team.teamName) && (team.teamName !== teamPointsCtrl.teamName)"
+                     >
+                    {{team.teamName}}
+                    <span class="pull-right">{{team.points}}  <span class="glyphicon glyphicon-education"></span></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

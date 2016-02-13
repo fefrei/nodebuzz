@@ -1,0 +1,106 @@
+<div ng-show="!monitorTeamsCtrl.disconnected.value && (monitorTeamsCtrl.isTeamListShown.value && !monitorTeamsCtrl.buzzersEnabled.value   || !monitorTeamsCtrl.dynamicView.value)">
+
+    <!-- buttons for sorting the teams by different options -->
+    <div class="row">
+
+        <div class="col-sm-4">
+            <div class="btn-toolbar">
+                <div id="teamSortBar" class="btn-group">
+                    <button class="btn btn-default"
+                            ng-repeat="searchButton in monitorTeamsCtrl.searchButtons"
+                            ng-class="{'active': monitorTeamsCtrl.sortParameter == searchButton.option}"
+                            ng-click="monitorTeamsCtrl.sort(searchButton.option)"
+                            title="Sort by {{searchButton.label}}">
+                        {{searchButton.label}}
+                    <span class="glyphicon"
+                          ng-show="monitorTeamsCtrl.sortParameter == searchButton.option"
+                          ng-class="{'{{searchButton.glyphicon}}' : !monitorTeamsCtrl.reverse, '{{searchButton.glyphiconAlt}}' : monitorTeamsCtrl.reverse}"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- shown in the standard view -->
+    <div class="row" style="margin-top: 20px" ng-show="monitorTeamsCtrl.standardView.value">
+        <div on-finish-render
+             ng-repeat="team in monitorTeamsCtrl.teamList.teams
+             | orderBy:monitorTeamsCtrl.sortParameter:monitorTeamsCtrl.reverse | filter: {teamName : '!Lobby'}">
+            <div class="col-sm-4">
+                <div class="panel panel-primary"
+                     ng-class="{'panel-success': team.teamName == monitorTeamsCtrl.firstBuzzed.value, 'disabled-team': monitorTeamsCtrl.isExcluded(team.teamName) , 'panel-danger': monitorTeamsCtrl.areAllDevicesDisconnected(team)}"
+                     title="Name: {{team.teamName}}
+Points: {{team.points}}
+Members: {{team.members.length}}
+Able to Buzz: {{team.members.length > 0 && !monitorTeamsCtrl.areAllDevicesDisconnected(team)}}"
+
+                >
+                    <div class="panel-heading">
+                        <span class="monitor-standard">
+                            <!-- every team is show together with the points -->
+                        <span>{{team.teamName}}</span>
+                            <span>({{team.points}}  <span
+                                    class="glyphicon glyphicon-education"></span>)</span>
+                            <!-- if the teamMembers are hidden, the number of members is shown -->
+                    <span class="pull-right"
+                          ng-show="!monitorTeamsCtrl.areTeamMembersVisible.value">
+                        {{team.members.length}} <span
+                            class="glyphicon glyphicon-user"></span> </span>
+                    </span>
+                    </div>
+                    <div class="panel-body" ng-show="monitorTeamsCtrl.areTeamMembersVisible.value">
+                        <ul class="list-group">
+                            <li ng-repeat="client in team.members"
+                                class="list-group-item monitor-client-name">
+                                {{client.clientName}}
+                                <!-- label for showing if a client is connected or not -->
+                                <span ng-class="{'label-success': client.connected, 'label-danger': !client.connected}"
+                                      class="label pull-right">
+                                    {{(!client.connected && 'offline') || (client.connected && 'online')}}
+                                </span>
+                            </li>
+                            <li ng-if="!team.members.length"
+                                class="list-group-item">
+                                <div>
+                                    <p class="list-group-item-heading monitor-client-name">This team
+                                        is empty</p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- nice arrangement of the teams -->
+            <div class="clearfix" ng-if="($index + 1) % 3 == 0"></div>
+        </div>
+    </div>
+
+    <!-- shown in the score board view -->
+    <div class="row" style="margin-top: 40px"
+         ng-show="monitorTeamsCtrl.scoreBoard.value">
+        <div on-finish-render
+             ng-repeat="team in monitorTeamsCtrl.teamList.teams
+             | orderBy:monitorTeamsCtrl.sortParameter:monitorTeamsCtrl.reverse | filter: {teamName : '!Lobby'}">
+            <div class="col-sm-6">
+                <div class="panel panel-primary"
+                     ng-class="{'panel-success': team.points == monitorTeamsCtrl.maxPoints.value}"
+                >
+                    <div class="panel-heading">
+                        <span class="monitor-score-board">{{team.teamName}}
+                            <span class="glyphicon glyphicon-star-empty"
+                                  title="Winner"
+                                  ng-show="team.points == monitorTeamsCtrl.maxPoints.value"></span>
+                        </span>
+
+                        <span class="monitor-score-board pull-right">{{team.points}} <span
+                                class="glyphicon glyphicon-education"></span></span>
+                    </div>
+                </div>
+            </div>
+            <!-- nice arrangement of the teams -->
+            <div class="clearfix" ng-if="($index + 1) % 2 == 0"></div>
+        </div>
+    </div>
+</div>

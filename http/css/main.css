@@ -1,0 +1,302 @@
+.centered-text {
+    text-align: center;
+}
+
+.disable-buzzers {
+    width: 25%;
+}
+
+.buzzer-state {
+
+    text-align: center;
+    font-size: 1.5em
+}
+
+.btn-buzzer {
+    font-size: 8em;
+    padding: 2em;
+    height: 100%;
+}
+
+.form-large {
+    font-size: 3em;
+}
+
+.input-large {
+    padding: 1em;
+    font-size: 2em;
+}
+
+.alert-centered {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.margin {
+    margin: 3%;
+}
+
+.monitor-team-name {
+    position: relative;
+    top: 30%;
+    font-size: 130% !important;
+}
+
+.monitor-client-name {
+    position: relative;
+    top: 30%;
+    font-size: 100% !important;
+}
+
+.monitor-big-font-buzzed {
+    font-size: 800%;
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.monitor-big-font {
+    position: relative;
+    margin-top: 15%;
+    text-align: center;
+}
+
+.center {
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .col-sm-4 {
+        margin-top: 20px;
+    }
+}
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+}
+
+.sensitivity-buzzed {
+    background-color: #c4c5c6;
+}
+
+.as-sortable-item, .as-sortable-placeholder {
+    min-height: 20px;
+    margin: 1px 2px 5px 1px;
+}
+
+.as-sortable-item {
+    border-top: solid 1px darkgrey;
+
+}
+
+.as-sortable-item-handle {
+}
+
+.as-sortable-placeholder {
+    border-top: 1px dashed darkgrey;
+    box-sizing: border-box;
+}
+
+.as-sortable-drag {
+    opacity: .8;
+}
+
+.as-sortable-hidden {
+}
+
+.disabled-team {
+    opacity: .8;
+}
+
+.disabled-button {
+    opacity: .7;
+}
+
+.monitor-score-board {
+    font-size: 250%;
+}
+
+.monitor-standard {
+    font-size: 150%;
+}
+
+.animate-please-buzz {
+    color: red;
+
+    /* Chrome, Opera */
+    -webkit-animation-name: buzz;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+
+    /*Firefox*/
+    -moz-animation-name: buzz;
+    -moz-animation-duration: 5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-delay: 0s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+
+    -o-animation-name: buzz;
+    -o-animation-duration: 5s;
+    -o-animation-timing-function: linear;
+    -o-animation-delay: 0s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-direction: alternate;
+
+    /*Internet Explorer*/
+    animation-name: buzz;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate
+
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes buzz {
+    0% {
+        color: #ff7d85;
+        font-size: 1000%;
+    }
+    25% {
+        color: yellow;
+        font-size: 1130%;
+    }
+    50% {
+        color: #68dbff;
+        font-size: 1260%;
+    }
+    75% {
+        color: #7effba;
+        font-size: 1130%;
+    }
+    100% {
+        color: red;
+        font-size: 1000%;
+    }
+}
+
+/*Firefox*/
+
+@-moz-keyframes buzz {
+    0% {
+        color: #ff7d85;
+        font-size: 1000%;
+    }
+    25% {
+        color: yellow;
+        font-size: 1130%;
+    }
+    50% {
+        color: #68dbff;
+        font-size: 1260%;
+    }
+    75% {
+        color: #7effba;
+        font-size: 1130%;
+    }
+    100% {
+        color: red;
+        font-size: 1000%;
+    }
+}
+
+@-o-keyframes buzz {
+    0% {
+        color: #ff7d85;
+        font-size: 1000%;
+    }
+    25% {
+        color: yellow;
+        font-size: 1130%;
+    }
+    50% {
+        color: #68dbff;
+        font-size: 1260%;
+    }
+    75% {
+        color: #7effba;
+        font-size: 1130%;
+    }
+    100% {
+        color: red;
+        font-size: 1000%;
+    }
+}
+
+@keyframes buzz {
+    0% {
+        color: #ff7d85;
+        font-size: 1000%;
+    }
+    25% {
+        color: yellow;
+        font-size: 1130%;
+    }
+    50% {
+        color: #68dbff;
+        font-size: 1260%;
+    }
+    75% {
+        color: #7effba;
+        font-size: 1130%;
+    }
+    100% {
+        color: red;
+        font-size: 1000%;
+    }
+}
+
+.safari-animation {
+
+    -webkit-animation-name: saf-buzz;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes saf-buzz {
+    0% {
+        color: #ff7d85;
+        font-size: 400%;
+    }
+    25% {
+        color: yellow;
+        font-size: 440%;
+    }
+    50% {
+        color: #68dbff;
+        font-size: 480%;
+    }
+    75% {
+        color: #7effba;
+        font-size: 440%;
+    }
+    100% {
+        color: red;
+        font-size: 400%;
+    }
+}
+
+.progress-height {
+    font-size: 1000%;
+    opacity: 0;
+}

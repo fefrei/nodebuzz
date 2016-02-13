@@ -1,0 +1,36 @@
+<div class="row">
+
+    <!-- is shown when the buzzers are enabled and the teams can buzz-->
+    <div class="col-sm-12"
+         ng-show="monitorBuzzerCtrl.buzzersEnabled==true && (!monitorBuzzerCtrl.disconnected.value) &&
+         monitorBuzzerCtrl.dynamicView.value">
+        <h1 class="monitor-big-font"
+            ng-class="{'animate-please-buzz': !monitorBuzzerCtrl.isSafari,
+            'safari-animation': monitorBuzzerCtrl.isSafari}">
+            Please BUZZ!</h1>
+    </div>
+
+    <!-- is shown when a team buzzed (or got buzzed by the admin) and the countdown ist greater
+    than 0 -->
+    <div ng-show="monitorBuzzerCtrl.buzzersEnabled==false && monitorBuzzerCtrl.countDown > 0 &&
+    !monitorBuzzerCtrl.disconnected.value && monitorBuzzerCtrl.dynamicView.value">
+        <h1 class="col-sm-12 monitor-big-font-buzzed">
+            {{monitorBuzzerCtrl.firstBuzzed}} has buzzed<br>
+            Time left: {{monitorBuzzerCtrl.countDown}}
+        </h1>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <uib-progressbar class="progress-striped active"
+                                 ng-class="{active: monitorBuzzerCtrl.active}"
+                                 max="monitorBuzzerCtrl.maxCounter"
+                                 value="monitorBuzzerCtrl.countDown"
+                                 type="{{monitorBuzzerCtrl.progressType}}"
+                                 style="height: 1000%; min-height: 1000%"
+                > <span class="progress-height">
+                    {{monitorBuzzerCtrl.countDown}}</span>
+                </uib-progressbar>
+            </div>
+        </div>
+    </div>
+</div>

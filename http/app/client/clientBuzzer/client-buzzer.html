@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+        <div class="btn-toolbar pull-right">
+
+            <div class="btn-group">
+                <div class="dropdown pull-right">
+                    <button class="btn btn-default btn-md dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><button class="btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                    ng-click="buzzerCtrl.goToTeamSelection()"
+                                    style="background-color: transparent;
+                                    border-bottom-style: solid;
+                                    border-bottom-color: #0b0b0b;">
+                                select team
+                            </button>
+                        </li>
+                        <li><button class="btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                    ng-click="buzzerCtrl.goToTeamPoints()"
+                                    style="background-color: transparent;
+                                    border-bottom-style: solid;
+                                    border-bottom-color: #0b0b0b;
+                                    border-top-style: solid;
+                                    border-top-color: #0b0b0b;">
+                            view score
+                        </button>
+                        </li>
+                        <li><button class="btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                    ng-click="buzzerCtrl.goToChangeSensitivity()"
+                                    style="background-color: transparent;
+                                    border-top-style: solid;
+                                    border-top-color: #0b0b0b;">
+                            settings
+                        </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 container">
+        <label for="nameInfo" class="control-label">Name:</label>
+        <div id="nameInfo" class="well well-sm">{{buzzerCtrl.deviceName}}</div>
+
+        <label for="teamInfo" class="control-label">Team:</label>
+        <div id="teamInfo" class="well well-sm">{{buzzerCtrl.teamName}}
+            <span class="pull-right">{{buzzerCtrl.points}} points</span>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button ng-mousedown="buzzerCtrl.buzz()" class="btn btn-block buttonForm
+                                                    {{buzzerCtrl.buzzerState}}"
+                ng-disabled="!buzzerCtrl.buzzerEnabled"
+                style="font-size: 300%;">
+            {{buzzerCtrl.buzzerText}}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.buttonForm{
+    height: 5cm;
+}
+
+.disabled{
+    background-color: #999999;
+}
+
+.enabled{
+    background-color: #985f0d;
+}
+
+.enabled:hover{
+    background-color: #b87f2d;
+}
+
+.enabled:disabled{
+    background-color: #985f0d;
+}
+
+.selfBuzzed{
+    background-color: #00A000;
+}
+
+.teamBuzzed{
+    background-color: #50f050;
+}
+
+.lateBuzzed{
+    background-color: #A00000;
+}
+
+.excluded{
+    background-color: #000000;
+}
+
+.buzzTriggered{
+    background-color: #999900;
+}

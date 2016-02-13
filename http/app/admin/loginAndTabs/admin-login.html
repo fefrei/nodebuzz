@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="jumbotron animated bounce" style="text-align: center">
+        <h1> Please Login!</h1>
+    </div>
+</div>
+<div class="row">
+    <div ng-show="loginCtrl.reconnected && !loginCtrl.disconnected"
+         class="alert alert-success alert-centered">
+        Your connection to the nodeBuzz 2.0 server was reestablished!
+        <a class="close" ng-click="loginCtrl.reconnected = false;">&times;</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div ng-show="loginCtrl.invalidKey" class="alert alert-danger alert-centered">
+        Login failed, please provide a valid password! <span class="badge">{{loginCtrl
+        .invalidKey}}</span>
+    </div>
+</div>
+
+<div class="row">
+    <div ng-show="loginCtrl.autoLogin && !loginCtrl.disconnected" class="alert alert-info alert-centered">
+        Trying to automatically log in to previous session ...
+    </div>
+</div>
+
+<div class="row">
+    <div ng-show="loginCtrl.disconnected" class="alert alert-danger alert-centered">
+        You are not connected to the nodeBuzz 2.0 server!
+    </div>
+</div>
+
+<div class="row">
+    <div ng-show="loginCtrl.normalLogin && !loginCtrl.disconnected" class="alert alert-info alert-centered">
+        Logging in ...
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <form name="loginForm" role="form"
+              ng-submit="loginForm.$valid && loginCtrl.login(loginForm)"
+              novalidate>
+            <div class="form-group">
+                <label for="pwd" class="control-label">Admin Password:</label>
+                <input id="pwd" name="pwd" class="form-control input-lg text-center"
+                       ng-model="loginCtrl.pwd" focus-me
+                       ng-disabled="loginCtrl.autoLogin || loginCtrl.normalLogin || loginCtrl.disconnected"
+                       type="password" required>
+            </div>
+            <button type="submit" ng-disabled="loginForm.$invalid"
+                    class="btn btn-primary btn-lg btn-block">
+                Login
+            </button>
+        </form>
+
+    </div>
+</div>

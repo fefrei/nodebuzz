@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+            <button ng-click="teamSelectionCtrl.goToBuzzer()" class="btn btn-md btn-default pull-right">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+    </div>
+</div>
+
+
+<div class="row" style="margin-top: 10px">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="alert {{teamSelectionCtrl.alertType}} alert-centered">
+            You are in: <br>
+            {{teamSelectionCtrl.teamName}}
+        </div>
+    </div>
+
+    <div ng-hide="teamSelectionCtrl.teamChangeAllowed" class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="alert alert-centered alert-info">
+            Team changing is disabled!
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button
+                ng-click="teamSelectionCtrl.newTeamButtonClick()"
+                class="btn btn-default btn-block btn-lg"
+                ng-disabled="!teamSelectionCtrl.teamChangeAllowed"
+                ng-class="{'active': teamSelectionCtrl.showNewTeam}"><span class="glyphicon glyphicon-plus pull-right"></span>
+            Open a new team
+        </button>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px" ng-show="teamSelectionCtrl.showNewTeam && teamSelectionCtrl.teamChangeAllowed">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <form name="createTeamForm" ng-submit="createTeamForm.$valid && teamSelectionCtrl.createTeam()"
+              novalidate>
+
+            <div class="form-group">
+                <label for="teamName" class="control-label">Choose a new team name:</label>
+                <input id="teamName" type="text" class="input-lg  form-control"
+                       ng-model="teamSelectionCtrl.newTeamName" placeholder="Some valid team name" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block btn-lg" type="submit" ng-disabled="createTeamForm.$invalid || createTeamForm.$pristine">
+                    create team
+                </button>
+            </div>
+
+            <div ng-show="teamSelectionCtrl.showError" class="alert alert-danger alert-centered">
+                {{teamSelectionCtrl.errorText}}
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button
+                ng-click="teamSelectionCtrl.teamsButtonClick()"
+                ng-disabled="!teamSelectionCtrl.teamChangeAllowed"
+                class="btn btn-default btn-block btn-lg"
+                ng-class="{'active': teamSelectionCtrl.showTeams}"><span
+                class="glyphicon glyphicon-list pull-right"></span>Join a team
+        </button>
+    </div>
+</div>
+
+<div class="row" ng-show="teamSelectionCtrl.showTeams && teamSelectionCtrl.teamChangeAllowed" style="margin-top: 10px">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div>
+            <div class="list-group">
+                <div ng-repeat="team in teamSelectionCtrl.teamsData">
+                    <a ng-click="teamSelectionCtrl.changeTeam(team.teamName)"
+                       href=""
+                       class="list-group-item"
+                        ng-class="{ 'active': teamSelectionCtrl.teamName == team.teamName}">
+                        {{team.teamName}} <span class="pull-right">{{team.members
+                        .length}}
+                    <ng-pluralize count="team.members.length"
+                                  when="{'0' : 'member',
+                                        '1' : 'member',
+                                        'other' : 'members'}"
+                    </ng-pluralize>
+                    </span>
+                    </a>
+                    <label class="list-group-item"
+                            style="text-align: right;
+                                    background-color: rgba(0,0,0,0.2);"
+                            ng-if="teamSelectionCtrl.teamName == team.teamName"
+                            ng-repeat="member in team.members">
+                        <label style="margin: 0px; padding: 0px;
+                               color: #FF9999;"
+                               ng-if="!member.connected">
+                            {{member.clientName}}
+                        </label>
+                        <label style="margin: 0px; padding: 0px;"
+                               ng-if="member.connected">
+                            {{member.clientName}}
+                        </label>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

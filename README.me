@@ -1,0 +1,41 @@
+NodeBuzz 2.0
+========
+
+An advanced buzzer in node.js for multiple teams.
+
+Each team can use a smartphone, placed on the team's table. Team members can buzz by hitting their table (which is detected by the accelerometer). When someone buzzes, a countdown is shown on all participating devices. A central monitor can show who buzzed and the countdown.
+
+
+Install
+-----
+
+1. Make sure you have node.js and bower installed on your PC
+(1.5) if you do not have bower installed simply enter "npm install bower -g"
+2. execute "npm install"
+3. execute "bower install"
+4. The NodeBuzz 2.0 is now ready to run
+
+Usage
+-----
+start the server with "npm start -p <port>" (for more options cf. —-help or -h)
+
+Server CLI: enter "help" or "fullHelp" for a list of commands
+Admin interface is available under "localIP:<port>/admin"
+Client interface is available under "localIP:<port>"
+Monitor interface is available under "localIP:<port>/monitor"
+
+Now, clients can buzz (by hitting the table their device is placed on), the central monitor will show who buzzed.
+The admin can enable / disable buzzing, remote-buzz specific clients, configure the countdown, distribute points to the teams and change the team membership of clients.
+
+
+Limitations
+-----------
+
+* On client side online supports Android versions >= 4.0 and iOS version >= 7.0
+
+
+Security
+--------
+
+Access to the admin page is only granted if the valid password is entered. The password is printed in the console when the program is started.
+Client and monitor pages are accessible without any security measures.

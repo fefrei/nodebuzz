@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button ng-click="sensitivityCtrl.goToBuzzer()" class="btn btn-md btn-default pull-right">
+            <span class="glyphicon glyphicon-ok"></span>
+        </button>
+    </div>
+</div>
+
+{{sensitivityCtrl.DebugText}}
+
+<div class="row" style="margin-top: 10px">
+
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="alert alert-centered alert-info">
+            You cannot buzz in this screen!
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <form novalidate>
+            <div class="form-group">
+                <label for="slider" class="control-label">Triggering amplitude:</label>
+                <slider id="slider"  ng-disabled="!sensitivityCtrl.motionAvalible"
+                        ng-model="sensitivityCtrl.sensitivity" min="sensitivityCtrl.min"
+                        step="sensitivityCtrl.step" max="sensitivityCtrl.max" value="sensitivityCtrl.sensitivity">
+                </slider>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="form-group">
+            <label for="mockSlider" class="control-label">Current amplitude:</label>
+            <uib-progressbar value="sensitivityCtrl.sensitivity" type="primary"
+                             max="sensitivityCtrl.max" animate="false"
+                             style="margin : 0px; padding: 0px; height: 10px;
+                             {{sensitivityCtrl.progressBarBgColor}}">
+            </uib-progressbar>
+            <uib-progressbar id="mockSlider"
+                             value="sensitivityCtrl.currentMotion" type="primary"
+                             max="sensitivityCtrl.max" animate="false"
+                             style="margin : 0px; padding: 0px;
+                             {{sensitivityCtrl.progressBarBgColor}}">
+            </uib-progressbar>
+            <uib-progressbar value="sensitivityCtrl.sensitivity" type="primary"
+                             max="sensitivityCtrl.max" animate="false"
+                             style="margin : 0px; padding: 0px; height: 10px;
+                             {{sensitivityCtrl.progressBarBgColor}}">
+            </uib-progressbar>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="alert {{sensitivityCtrl.testAlertType}} alert-centered">
+            {{sensitivityCtrl.testText}}
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button type="button" ng-disabled="!sensitivityCtrl.motionAvalible"
+                class="btn btn-default btn-block btn-lg"
+                ng-click="sensitivityCtrl.toggleMotion()">
+            {{sensitivityCtrl.motionButtonText}}
+        </button>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <button type="button" ng-disabled="!sensitivityCtrl.motionAvalible"
+                class="btn btn-default btn-block btn-lg"
+                ng-click="sensitivityCtrl.cancel()">
+            cancel
+        </button>
+    </div>
+</div>

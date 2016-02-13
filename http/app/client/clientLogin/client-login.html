@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="jumbotron animated bounce" style="text-align: center">
+        <h1> NodeBuzz 2.0</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-10 col-sm-4 col-xs-offset-1 col-sm-offset-4">
+        <form name="loginForm" ng-submit="loginForm.$valid && loginCtrl.login(loginForm)"
+              novalidate>
+
+            <div class="form-group">
+                <label for="deviceName" class="control-label">Choose a name to join:</label>
+                <input id="deviceName" type="text" class="input-lg  form-control text-center"
+                       ng-model="loginCtrl.deviceName" focus-me
+                       required>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block"
+                        ng-disabled="loginForm.$invalid"
+                        type="submit"> LOGIN
+                </button>
+            </div>
+
+            <div ng-show="loginCtrl.showError" class="alert alert-danger alert-centered">
+                {{loginCtrl.errorText}}
+            </div>
+
+        </form>
+    </div>
+</div>

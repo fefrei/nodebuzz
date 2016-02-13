@@ -1,0 +1,35 @@
+<div class="row" style="margin-bottom: 1cm">
+    <div class="jumbotron" style="text-align: center; margin-bottom: 0;">
+        <ul class="nav navbar-nav navbar-right">
+
+        </ul>
+        <h1> NodeBuzz 2.0 Admin</h1>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li ng-click="loginCtrl.setTab('home')"
+                        ng-class="{ active: loginCtrl.activeTab == 'home'}">
+                        <a href="#home"><span class="glyphicon glyphicon-home"></span> Main </a>
+                    </li>
+                    <li ng-click="loginCtrl.setTab('log')"
+                        ng-class="{ active: loginCtrl.activeTab == 'log'}">
+                        <a href="#log"><span class="glyphicon glyphicon-list-alt"></span> Log
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" ng-click="loginCtrl.toggleHelp()"><span
+                            class="glyphicon glyphicon-question-sign"></span></a>
+
+                    </li>
+                    <li><a href="#" ng-click="loginCtrl.logOut()"><span
+                            class="glyphicon glyphicon-log-out"></span> Log out </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,28 @@
+<form name="addTeamForm" role="form"
+      ng-submit="addTeamForm.$valid && adminTeamMngmtCtrl.addTeam(addTeamForm)"
+      novalidate>
+    <div class="input-group">
+        <div class="input-group-btn" title="Add a new team">
+            <button type="submit" ng-disabled="addTeamForm.$invalid || addTeamForm.$pristine"
+                    class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+        <input id="newTeamName" name="newTeamName" class="form-control"
+               ng-model="adminTeamMngmtCtrl.newTeamName"
+               type="text"
+               placeholder="Add a new team name"
+               ng-change="adminTeamMngmtCtrl.invalidTeamName = false"
+               ng-blur ="adminTeamMngmtCtrl.invalidTeamName = false"
+               required>
+    </div>
+
+    <div class="" uib-collapse="!adminTeamMngmtCtrl.invalidTeamName">
+            <span class="label label-danger center-block">
+                <span class="glyphicon glyphicon-flash"></span>
+                <span ng-if="!adminTeamMngmtCtrl.invalidTeamNameMessage">Cannot use this team name!</span>
+                <span ng-if="adminTeamMngmtCtrl.invalidTeamNameMessage">{{adminTeamMngmtCtrl.invalidTeamNameMessage}}</span>
+            </span>
+    </div>
+
+</form>
